@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="newconstructionviewmodel"
+            type="com.nads.construction.ui.newconstruction.NewConstructionViewModel" />
+    </data>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.newconstruction.NewConstruction">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_uppercorner_grad_turqoise">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pattaya"
+            android:text="New Construction"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.137" />
+
+        <Button
+            android:id="@+id/placename_seller"
+            android:layout_width="362dp"
+            android:layout_height="63dp"
+            android:background="@drawable/bg_dark_corners"
+            android:fontFamily="@font/pattaya"
+            android:text="    House"
+            android:textColor="#ffff"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:onClick="@{()->newconstructionviewmodel.navigateHouse()}"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.335">
+
+        </Button>
+
+        <Button
+            android:layout_width="362dp"
+            android:layout_height="63dp"
+            android:background="@drawable/bg_dark_corners"
+            android:onClick="@{()->newconstructionviewmodel.navigateCommercial()}"
+
+            android:text="    Commercial"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:fontFamily="@font/pattaya"
+            android:textColor="#ffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/placename_seller"
+            app:layout_constraintVertical_bias="0.175">
+        </Button>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
+    </layout>

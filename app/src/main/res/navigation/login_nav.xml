@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_nav"
+    app:startDestination="@id/loginFragment"
+    app:progressDestination="@id/customProgressFrag">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.nads.landfind.ui.loginpack.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUp"
+            app:destination="@id/signUp" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUp"
+        android:name="com.nads.landfind.ui.loginpack.SignUp"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUp_to_mainFragment"
+            app:destination="@id/mainFragment"/>
+        <action
+            android:id="@+id/action_signUp_to_otp"
+            app:destination="@id/otp" >
+        <argument
+            android:name="username"
+            android:defaultValue=""
+            app:argType="string"
+            app:nullable="true" />
+    </action>
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.nads.landfind.ui.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_seller"
+            app:destination="@id/seller" />
+        <action
+            android:id="@+id/action_mainFragment_to_buyer"
+            app:destination="@id/buyer" />
+    </fragment>
+    <fragment
+        android:id="@+id/maintenanceWork"
+        android:name="com.nads.construction.ui.maintenancework.MaintenanceWork"
+        app:moduleName="LandFind.construction"
+        android:label="fragment_maintenance_work"
+        tools:layout="@layout/fragment_maintenance_work" />
+    <fragment
+        android:id="@+id/newConstruction"
+        android:name="com.nads.construction.ui.newconstruction.NewConstruction"
+        app:moduleName="LandFind.construction"
+        android:label="fragment_new_construction"
+        tools:layout="@layout/fragment_new_construction" />
+    <include-dynamic
+        android:id="@+id/construction_graph"
+        app:moduleName="construction"
+        app:graphResName="construction_graph"/>
+    <activity
+        android:id="@+id/constructionActivity"
+        android:name="com.nads.construction.ConstructionActivity"
+        app:moduleName="LandFind.construction"
+        android:label="activity_construction"
+        tools:layout="@layout/activity_construction" />
+    <fragment
+        android:id="@+id/buyer"
+        android:name="com.nads.landfind.ui.buy.Buyer"
+        android:label="Buyer" >
+        <action
+            android:id="@+id/action_buyer_to_landDetails"
+            app:destination="@id/landDetails">
+            <argument
+                android:name="id"
+                android:defaultValue="1"
+                app:argType="string"
+                app:nullable="true" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/seller"
+        android:name="com.nads.landfind.ui.sell.Seller"
+        android:label="Seller" />
+    <fragment
+        android:id="@+id/landDetails"
+        android:name="com.nads.landfind.ui.landdetails.LandDetails"
+        android:label="LandDetails" >
+        <argument
+            android:name="id"
+            android:defaultValue="1"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/customProgressFrag"
+        android:name="com.nads.landfind.ui.progressviews.CustomProgressFrag"
+        android:label="CustomProgressFrag" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.nads.landfind.ui.profile.Profile"
+        android:label="Profile" />
+    <fragment
+        android:id="@+id/constructMain"
+        android:name="com.nads.construction.ui.ConstructMain"
+        app:moduleName="LandFind.construction"
+        android:label="ConstructMain" />
+    <fragment
+        android:id="@+id/otp"
+        android:name="com.nads.landfind.ui.loginpack.Otp"
+        android:label="Otp">
+        <argument
+            android:name="username"
+            android:defaultValue=""
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>

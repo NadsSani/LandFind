@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="sellerviewmodel"
+            type="com.nads.landfind.ui.sell.SellerViewModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_uppercorner_grad_turqoise"
+        android:layout_height="match_parent">
+
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Publish Your Land For Sale"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginTop="50dp"
+        android:textSize="20dp">
+
+    </TextView>
+    <EditText
+        android:id="@+id/placename_seller"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_dark_corners"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
+        android:text="@={sellerviewmodel.placename}"
+        tools:text="Place Name"
+        android:textAlignment="textStart"
+        android:textColor="#ffff"
+        android:textColorHint="#ffff"
+        tools:layout_editor_absoluteY="152dp">
+    </EditText>
+    <TextView
+        android:layout_width="match_parent"
+        android:text="ADD Images"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content">
+
+    </TextView>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_marginTop="15dp"
+    android:layout_height="wrap_content">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="100dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_height="100dp">
+        <ImageView
+            android:id="@+id/imgseller1"
+            android:layout_width="match_parent"
+            android:src="@drawable/add_ico"
+            android:onClick="@{(view)->sellerviewmodel.chooseImage(view)}"
+            android:layout_height="match_parent">
+
+        </ImageView>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="100dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_height="100dp">
+        <ImageView
+            android:id="@+id/imgseller2"
+            android:layout_width="match_parent"
+            app:srcCompat="@drawable/add_ico"
+            android:onClick="@{(view)->sellerviewmodel.chooseImage(view)}"
+
+            android:layout_height="match_parent">
+
+        </ImageView>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="100dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_height="100dp">
+        <ImageView
+            android:id="@+id/imgseller3"
+            android:layout_width="match_parent"
+            android:onClick="@{(view)->sellerviewmodel.chooseImage(view)}"
+
+            app:srcCompat="@drawable/add_ico"
+            android:layout_height="match_parent">
+
+        </ImageView>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>
+
+    <EditText
+        android:id="@+id/village_seller"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_dark_corners"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
+        android:text="@={sellerviewmodel.village}"
+        tools:text="Village"
+        android:textAlignment="textStart"
+        android:textColor="#ffff"
+        android:textColorHint="#ffff"
+        tools:layout_editor_absoluteY="152dp">
+    </EditText>
+    <EditText
+        android:id="@+id/taluk_seller"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_dark_corners"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
+        android:text="@={sellerviewmodel.taluk}"
+        tools:text="Taluk"
+        android:textAlignment="textStart"
+        android:textColor="#ffff"
+        android:textColorHint="#ffff"
+        tools:layout_editor_absoluteY="152dp">
+    </EditText>
+    <EditText
+        android:id="@+id/properties_on_seller"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_dark_corners"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
+        android:text="@={sellerviewmodel.propertiesonland}"
+        tools:text="Properties on Land"
+        android:textAlignment="textStart"
+        android:textColor="#ffff"
+        android:textColorHint="#ffff"
+        tools:layout_editor_absoluteY="152dp">
+    </EditText>
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp" />
+
+    <TextView
+        android:id="@+id/googlemaplocation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_dark_corners"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="20dp"
+        android:text="@={sellerviewmodel.googlemaplocation}"
+        android:textAlignment="textStart"
+        tools:text="Google Map Location"
+        android:textColor="#ffff"
+        android:textColorHint="#ffff"
+        tools:layout_editor_absoluteY="152dp">
+    </TextView>
+    <EditText
+        android:id="@+id/other_spec_seller"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_dark_corners"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
+        android:text="@={sellerviewmodel.otherspecification}"
+        tools:text="Other specifications"
+        android:textAlignment="textStart"
+        android:textColor="#ffff"
+        android:textColorHint="#ffff"
+        tools:layout_editor_absoluteY="152dp">
+    </EditText>
+    <EditText
+        android:id="@+id/legal_issues_seller"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_dark_corners"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
+        android:text="@={sellerviewmodel.leagalissues}"
+        tools:text ="Leagal Issues"
+        android:textAlignment="textStart"
+        android:textColor="#ffff"
+        android:textColorHint="#ffff"
+        tools:layout_editor_absoluteY="152dp">
+    </EditText>
+    <EditText
+        android:id="@+id/land_type_seller"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_dark_corners"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
+        android:text="@={sellerviewmodel.landtype}"
+        tools:text="Land Type"
+        android:textAlignment="textStart"
+        android:textColor="#ffff"
+        android:textColorHint="#ffff"
+        tools:layout_editor_absoluteY="152dp">
+    </EditText>
+    <EditText
+        android:id="@+id/contactnumber_seller"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_dark_corners"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
+        android:text="@={sellerviewmodel.contactnumber}"
+        tools:text="Contact Number"
+        android:textAlignment="textStart"
+        android:textColor="#ffff"
+        android:textColorHint="#ffff"
+        tools:layout_editor_absoluteY="152dp">
+    </EditText>
+    <EditText
+        android:id="@+id/address_seller"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_dark_corners"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
+        android:text="@={sellerviewmodel.address}"
+        tools:text="Address"
+        android:textAlignment="textStart"
+        android:textColor="#ffff"
+        android:textColorHint="#ffff"
+        tools:layout_editor_absoluteY="152dp">
+    </EditText>
+    <EditText
+        android:id="@+id/price_seller"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bg_dark_corners"
+        android:paddingStart="30dp"
+        android:paddingEnd="20dp"
+        android:text="@={sellerviewmodel.estimatedprice}"
+        tools:text=" Estimated Price"
+        android:textAlignment="textStart"
+        android:textColor="#ffff"
+        android:textColorHint="#ffff"
+        tools:layout_editor_absoluteY="152dp">
+    </EditText>
+    <Button
+        android:id="@+id/submit_seller"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textSize="16sp"
+        android:onClick="@{()->sellerviewmodel.submit()}"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="19dp"
+        android:text="Submit">
+    </Button>
+</LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

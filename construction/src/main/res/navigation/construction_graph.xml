@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    app:startDestination="@id/constructMain">
+
+    <fragment
+        android:id="@+id/maintenanceWork2"
+        android:name="com.nads.construction.ui.maintenancework.MaintenanceWork"
+        android:label="MaintenanceWork" />
+    <fragment
+        android:id="@+id/newConstruction2"
+        android:name="com.nads.construction.ui.newconstruction.NewConstruction"
+        android:label="fragment_new_construction"
+        tools:layout="@layout/fragment_new_construction" />
+    <fragment
+        android:id="@+id/constructMain"
+        android:name="com.nads.construction.ui.ConstructMain"
+        android:label="ConstructMain" >
+        <action
+            android:id="@+id/action_constructMain_to_newConstruction2"
+            app:destination="@id/newConstruction2" />
+        <action
+            android:id="@+id/action_constructMain_to_maintenanceWork2"
+            app:destination="@id/maintenanceWork2" />
+    </fragment>
+</navigation>

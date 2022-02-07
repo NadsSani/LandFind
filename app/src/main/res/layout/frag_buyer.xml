@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="buyerviewmodel"
+            type="com.nads.landfind.ui.buy.BuyerViewModel" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/mainView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0AFFFFFF"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbars"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0AFFFFFF"
+            android:elevation="10dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:title="QSN"
+            app:titleCentered="true"
+            app:titleMarginEnd="250dp"
+            app:titleTextColor="#ffff">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->buyerviewmodel.openFilterDialogue()}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/badge4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/filter" />
+
+                <TextView
+                    android:id="@+id/heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="LandFinder"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView3"
+                    app:layout_constraintHorizontal_bias="0.186"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
+
+                </TextView>
+
+                <RelativeLayout
+                    android:id="@+id/badge4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline62"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.500">
+
+                    <RelativeLayout
+                        android:id="@+id/relative_layout3"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="3dp">
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/badge_notification_4"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_alignLeft="@id/relative_layout3"
+                        android:layout_alignBottom="@id/relative_layout3"
+                        android:layout_marginTop="15dp"
+                        android:text=""
+                        android:textColor="#FFF"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+
+
+                    <Button
+                        android:id="@+id/featurebtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="Filter"
+                        android:textSize="10sp"></Button>
+                </RelativeLayout>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline62"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.77" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_lands"
+        android:layout_width="match_parent"
+        android:layout_height="630dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/land_list_cards">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <include
+        android:id="@+id/progressloader"
+        layout="@layout/layout_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--            app:viewModel="@{viewModel}" />-->
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
