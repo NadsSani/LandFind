@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -76,8 +77,8 @@ class Buyer: BaseFrag() {
             setUpFilter()
         })
         buyerViewModel.isLoading.observe(viewLifecycleOwner){
-            if (it) fragBuyerBinding?.progressloader?.llLoading?.visibility = View.VISIBLE
-            else fragBuyerBinding?.progressloader?.llLoading?.visibility = View.GONE
+            if (it) fragBuyerBinding.progressloader.llLoading.visibility = View.VISIBLE
+            else fragBuyerBinding.progressloader.llLoading.visibility = View.GONE
         }
         setUpAppBar()
         fragBuyerBinding.appBarLayout.visibility = View.VISIBLE
@@ -103,6 +104,7 @@ class Buyer: BaseFrag() {
                 null,
                 price, this)?.collectLatest { pagingData ->
                 viewAdapter.submitData(pagingData)
+
             }
 
         }
@@ -123,10 +125,10 @@ class Buyer: BaseFrag() {
 
 
     private fun setUpFilter() {
-        val builder: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(context)
-        val mView = View.inflate(context, R.layout.filter_page, null)
+        val builder: AlertDialog.Builder = AlertDialog.Builder(requireActivity())
+        val mView = View.inflate(requireActivity(), R.layout.filter_page, null)
         val taluk: Spinner = mView.findViewById(R.id.taluks_spinner)
-        val village: Spinner = mView.findViewById(R.id.village_spinner)
+        val village: Spinner = mView.findViewById(R.id.localspinner)
         val price: Spinner = mView.findViewById(R.id.price_spinner)
         val applyFilter: Button = mView.findViewById<Button>(R.id.applyfilterbtn)
 
@@ -148,7 +150,7 @@ class Buyer: BaseFrag() {
             }
 
         builder.setView(mView)
-        val alertDialog: android.app.AlertDialog? = builder.create()
+        val alertDialog: AlertDialog? = builder.create()
         setUpApplyFilter(alertDialog,applyFilter,taluk,village,price)
         alertDialog?.show()
 

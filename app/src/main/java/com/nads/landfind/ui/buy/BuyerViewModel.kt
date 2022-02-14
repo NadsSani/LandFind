@@ -132,6 +132,7 @@ class BuyerViewModel @Inject constructor (private val getLandsUseCases: GetLands
 
               if (landlists is Success) {
                   var data = landlists.data
+
                   isLoading.postValue( false)
                    return data
               }

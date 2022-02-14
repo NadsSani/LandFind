@@ -1,5 +1,6 @@
 package com.nads.landfind.data.source.local
 
+import androidx.lifecycle.LiveData
 import androidx.paging.PagingSource
 import androidx.room.*
 import com.nads.landfind.data.Land
@@ -9,7 +10,7 @@ import com.nads.landfind.data.Land
 interface LandFindDao {
 
     @Query("SELECT * FROM landtable")
-    fun getLandList(): List<Land>
+    fun getLandList(): LiveData<List<Land>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(land: Land)

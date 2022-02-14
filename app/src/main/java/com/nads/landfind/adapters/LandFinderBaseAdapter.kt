@@ -38,7 +38,7 @@ class LandFinderBaseAdapter(
         val context =holder.cardView.context
         val placename = holder.cardView.placename
         val img = holder.cardView.siteimage
-        val village = holder.cardView.villagetxt
+        val village = holder.cardView.localtexty
         val taluk = holder.cardView.taluktxt
         val landtype= holder.cardView.landtypetxt
         val property= holder.cardView.propertytxt
@@ -47,7 +47,7 @@ class LandFinderBaseAdapter(
         property.text= item?.propertiesland.toString()
         landtype.text = item?.landtype.toString()
         taluk.text = item?.hbtaluk.toString()
-        village.text = item?.village.toString()
+       village.text = item?.village.toString()
         placename.text = item?.placename.toString()
         Glide.with(context).load(item?.img1).fitCenter().into(img)
         Log.e("HATTER",holder.cardView.toString())

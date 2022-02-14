@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
         setContentView(R.layout.activity_main)
         setupNavigationDrawer()
-        toolbars = findViewById(R.id.toolbars)
+        toolbars = findViewById(R.id.toolbar)
 
         actionBar?.setHomeButtonEnabled(true)
         actionBar?.setDisplayHomeAsUpEnabled(true)
