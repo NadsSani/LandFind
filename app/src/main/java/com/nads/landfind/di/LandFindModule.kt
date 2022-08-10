@@ -37,7 +37,7 @@ object LandFindModule {
         val client: OkHttpClient = OkHttpClient.Builder()
             .addInterceptor(Interceptor.invoke { chain: Interceptor.Chain ->
                 val orginal: Request = chain.request()
-                val request = orginal.newBuilder().header("key", "GHYT 85KJ 74YU RTYU").method(
+                val request = orginal.newBuilder().header("key", "").method(
                     orginal.method,
                     orginal.body
                 )
